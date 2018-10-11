@@ -37,22 +37,22 @@
   </entry>
   
   <entry>
-    <title>梯子搭建并加速</title>
-    <link href="http://blog.azj.space/2017/01/02/%E6%A2%AF%E5%AD%90%E6%90%AD%E5%BB%BA%E5%8A%A0%E9%80%9F.html"/>
-    <id>http://blog.azj.space/2017/01/02/梯子搭建加速.html</id>
+    <title>SS&amp;SSR搭建并加速</title>
+    <link href="http://blog.azj.space/2017/01/02/SS&amp;SSR%E6%90%AD%E5%BB%BA%E5%B9%B6%E5%8A%A0%E9%80%9F.html"/>
+    <id>http://blog.azj.space/2017/01/02/SS&amp;SSR搭建并加速.html</id>
     <published>2017-01-02T06:20:55.000Z</published>
-    <updated>2018-10-10T13:58:32.187Z</updated>
+    <updated>2018-10-11T14:28:16.490Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;本教程主要内容为shadowSocks（SS）、（SSR）的安装与使用，以及锐速的安装与使用。&lt;br&gt;教程适合小白用户，大佬请转身。&lt;/p&gt;
+      &lt;p&gt;文章主要内容为 Shadowsocks(SS)、ShadowsocksR(SSR) Server端的安装与使用，并运用锐速工具进行适当的加速。本文达成的效果为油管1080P流畅拖动，大洋彼岸的IP延迟稳定，游戏玩家不推荐。&lt;br&gt;
     
     </summary>
     
-      <category term="Ubuntu" scheme="http://blog.azj.space/categories/Ubuntu/"/>
+      <category term="Linux" scheme="http://blog.azj.space/categories/Linux/"/>
     
     
-      <category term="Tutorial" scheme="http://blog.azj.space/tags/Tutorial/"/>
+      <category term="OutGFW" scheme="http://blog.azj.space/tags/OutGFW/"/>
     
   </entry>
   
