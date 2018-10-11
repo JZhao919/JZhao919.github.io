@@ -17,7 +17,7 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>记一下 Ubuntu18.04 LTS 下的个人配置与软件，下一次重装见 | Hexo</title>
+  <title>记一下 Ubuntu18.04 LTS 下的个人配置与软件，下一次重装见 | AZJ.Blog</title>
   <meta name="description" content="本文档主要是记录一下重装 Ubuntu18.04 LTS 后的个人配置和安装的软件，并记录一些软件的安装流程，留备以后重装用。主要涉及一些 Proxy、系统软件、Chrome插件、常用软件、以及一些开发环境和IDE。">
 <meta name="keywords" content="software">
 <meta property="og:type" content="article">
@@ -25,8 +25,8 @@
 <meta property="og:url" content="http://blog.azj.space/2018/06/18/Ubuntu配置与软件.html">
 <meta property="og:site_name" content="AZJ.Blog">
 <meta property="og:description" content="本文档主要是记录一下重装 Ubuntu18.04 LTS 后的个人配置和安装的软件，并记录一些软件的安装流程，留备以后重装用。主要涉及一些 Proxy、系统软件、Chrome插件、常用软件、以及一些开发环境和IDE。">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:updated_time" content="2018-10-10T14:00:52.937Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-11T06:24:55.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一下 Ubuntu18.04 LTS 下的个人配置与软件，下一次重装见">
 <meta name="twitter:description" content="本文档主要是记录一下重装 Ubuntu18.04 LTS 后的个人配置和安装的软件，并记录一些软件的安装流程，留备以后重装用。主要涉及一些 Proxy、系统软件、Chrome插件、常用软件、以及一些开发环境和IDE。">
@@ -42,6 +42,8 @@
   
   
   
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
   
 </head>
 
@@ -65,7 +67,7 @@
 
     <form class="search-form sidebar-form">
         <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
             <span class="input-group-btn">
                 <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
             </span>
@@ -75,7 +77,7 @@
   <div class="ins-search-mask"></div>
   <div class="ins-search-container">
     <div class="ins-input-wrapper">
-      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
       <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
     <div class="ins-section-wrapper">
@@ -94,7 +96,7 @@
       </button>
     </div>
     <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-      <ul class="nav navbar-nav main-nav ">
+      <ul class="nav navbar-nav main-nav menu-highlight">
         
         
         <li class="menu-item menu-item-home">
@@ -102,17 +104,7 @@
             
             <i class="icon icon-home-fill"></i>
             
-            <span class="menu-title">Home</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives">
-            
-            <i class="icon icon-archives-fill"></i>
-            
-            <span class="menu-title">Archives</span>
+            <span class="menu-title">首页</span>
           </a>
         </li>
         
@@ -122,7 +114,7 @@
             
             <i class="icon icon-folder"></i>
             
-            <span class="menu-title">Categories</span>
+            <span class="menu-title">分类</span>
           </a>
         </li>
         
@@ -132,37 +124,17 @@
             
             <i class="icon icon-tags"></i>
             
-            <span class="menu-title">Tags</span>
+            <span class="menu-title">标签</span>
           </a>
         </li>
         
         
-        <li class="menu-item menu-item-repository">
-          <a href="/repository">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
             
-            <i class="icon icon-project"></i>
+            <i class="icon icon-archives-fill"></i>
             
-            <span class="menu-title">Repository</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-books">
-          <a href="/books">
-            
-            <i class="icon icon-book-fill"></i>
-            
-            <span class="menu-title">Books</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-links">
-          <a href="/links">
-            
-            <i class="icon icon-friendship"></i>
-            
-            <span class="menu-title">Links</span>
+            <span class="menu-title">归档</span>
           </a>
         </li>
         
@@ -172,7 +144,37 @@
             
             <i class="icon icon-cup-fill"></i>
             
-            <span class="menu-title">About</span>
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
           </a>
         </li>
         
@@ -202,7 +204,7 @@
   <div class="slimContent">
     
       <div class="widget">
-    <h3 class="widget-title">Board</h3>
+    <h3 class="widget-title">公告</h3>
     <div class="widget-body">
         <div id="board">
             <div class="content">
@@ -215,7 +217,16 @@
     
       
   <div class="widget">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Tutorial/" style="font-size: 13px;">Tutorial</a> <a href="/tags/software/" style="font-size: 13px;">software</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
     <div class="widget-body">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a><span class="category-list-count">2</span></li></ul>
     </div>
@@ -225,7 +236,7 @@
     
       
   <div class="widget">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget-body">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tutorial/">Tutorial</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">software</a><span class="tag-list-count">1</span></li></ul>
     </div>
@@ -235,16 +246,7 @@
     
       
   <div class="widget">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget-body tagcloud">
-      <a href="/tags/Tutorial/" style="font-size: 13px;">Tutorial</a> <a href="/tags/software/" style="font-size: 13px;">software</a>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">Archive</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget-body">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
@@ -254,11 +256,21 @@
     
       
   <div class="widget">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
-      <ul class="recent-post-list list-unstyled no-thumbnail">
+      <ul class="recent-post-list list-unstyled ">
         
           <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/06/18/Ubuntu配置与软件.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
             
             <div class="item-inner">
               <p class="item-category">
@@ -274,6 +286,16 @@
           </li>
           
           <li>
+            
+            <div class="item-thumb">
+              <a href="/2017/01/02/梯子搭建加速.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
             
             <div class="item-inner">
               <p class="item-category">
@@ -302,7 +324,7 @@
 <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
     <nav id="toc" class="article-toc">
-      <h3 class="toc-title">Catalogue</h3>
+      <h3 class="toc-title">文章目录</h3>
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-SS-代理畅游世界"><span class="toc-number">1.</span> <span class="toc-text">1. SS 代理畅游世界</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Shadowsocks-qt5-客户端-推荐"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Shadowsocks-qt5 客户端(推荐)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-普通版-shadowsocks"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 普通版 shadowsocks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-配置终端Proxy"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 配置终端Proxy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-配置全局PAC"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 配置全局PAC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Chrome-浏览器"><span class="toc-number">2.</span> <span class="toc-text">2. Chrome 浏览器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-安装"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-SwitchyOmega插件"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 SwitchyOmega插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Flash-插件"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Flash 插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-常用软件"><span class="toc-number">3.</span> <span class="toc-text">3. 常用软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-文本编辑"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 文本编辑</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-搜狗Pinyin"><span class="toc-number">3.1.1.</span> <span class="toc-text">3.1.1 搜狗Pinyin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-剪贴板Ditto"><span class="toc-number">3.1.2.</span> <span class="toc-text">3.1.2 剪贴板Ditto</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-WPS-安装"><span class="toc-number">3.1.3.</span> <span class="toc-text">3.1.3 WPS 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-4-Markdown编辑"><span class="toc-number">3.1.4.</span> <span class="toc-text">3.1.4 Markdown编辑</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-图像处理"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 图像处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-截屏软件"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1 截屏软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-GIMP"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2 GIMP</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-视频音频播放器"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 视频音频播放器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-VLCMedia-Player-格式广"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.3.1 VLCMedia Player(格式广)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-gnome播放器"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.3.2 gnome播放器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-SMPlayer"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.3.3 SMPlayer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-4-网易云音乐"><span class="toc-number">3.3.4.</span> <span class="toc-text">3.3.4 网易云音乐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-5-虾米音乐"><span class="toc-number">3.3.5.</span> <span class="toc-text">3.3.5 虾米音乐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-6-FFmpeg"><span class="toc-number">3.3.6.</span> <span class="toc-text">3.3.6 FFmpeg</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-7-录屏软件"><span class="toc-number">3.3.7.</span> <span class="toc-text">3.3.7 录屏软件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-云盘和下载"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 云盘和下载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-1-OneDrive安装"><span class="toc-number">3.4.1.</span> <span class="toc-text">3.4.1 OneDrive安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-2-uget下载器"><span class="toc-number">3.4.2.</span> <span class="toc-text">3.4.2 uget下载器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-系统软件"><span class="toc-number">4.</span> <span class="toc-text">4 系统软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-系统优化"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 系统优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-1-点击图标最小化"><span class="toc-number">4.1.1.</span> <span class="toc-text">4.1.1 点击图标最小化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-2-sysmonitor"><span class="toc-number">4.1.2.</span> <span class="toc-text">4.1.2 sysmonitor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-3-支持exfat文件"><span class="toc-number">4.1.3.</span> <span class="toc-text">4.1.3 支持exfat文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-x-装逼"><span class="toc-number">4.1.4.</span> <span class="toc-text">4.1.x 装逼</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-系统美化"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 系统美化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-安装压缩软件"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 安装压缩软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-Htop"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 Htop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-Guake-Terminal（F12…）"><span class="toc-number">4.5.</span> <span class="toc-text">4.5 Guake Terminal（F12…）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-albert神器"><span class="toc-number">4.6.</span> <span class="toc-text">4.6 albert神器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-开发工具安装"><span class="toc-number">5.</span> <span class="toc-text">5. 开发工具安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-代码编辑器"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 代码编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-OracleJDK安装"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 OracleJDK安装</span></a></li></ol></li></ol>
     </nav>
   </div>
@@ -344,20 +366,21 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/18/Ubuntu配置与软件.html#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/18/Ubuntu配置与软件.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3.5k(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.5k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 15(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 15(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>本文档主要是记录一下重装 Ubuntu18.04 LTS 后的个人配置和安装的软件，并记录一些软件的安装流程，留备以后重装用。<br>主要涉及一些 Proxy、系统软件、Chrome插件、常用软件、以及一些开发环境和IDE。<br><a id="more"></a></p>
+        <p>本文档主要是记录一下重装 Ubuntu18.04 LTS 后的个人配置和安装的软件，并记录一些软件的安装流程，留备以后重装用。<br>主要涉及一些 Proxy、系统软件、Chrome插件、常用软件、以及一些开发环境和IDE。</p>
+<a id="more"></a>
 <h2 id="1-SS-代理畅游世界"><a href="#1-SS-代理畅游世界" class="headerlink" title="1. SS 代理畅游世界"></a>1. SS 代理畅游世界</h2><h3 id="1-1-Shadowsocks-qt5-客户端-推荐"><a href="#1-1-Shadowsocks-qt5-客户端-推荐" class="headerlink" title="1.1 Shadowsocks-qt5 客户端(推荐)"></a>1.1 Shadowsocks-qt5 客户端(推荐)</h3><ul>
 <li><p>安装，终端内依次输入以下指令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:hzwhuang/ss-qt5</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install shadowsocks-qt5</span><br></pre></td></tr></table></figure>
@@ -535,7 +558,7 @@
     
   <section id="comments">
   	
-      <div id="vcomments"></div>
+           
     
   </section>
 
@@ -550,13 +573,13 @@
     
     
     <li class="next">
-      <a href="/2017/01/02/梯子搭建加速.html" title="梯子搭建并加速"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2017/01/02/梯子搭建加速.html" title="梯子搭建并加速"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
     <li class="toggle-toc">
-      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="Catalogue" role="button">
-        <span>[&nbsp;</span><span>Catalogue</span>
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
         <i class="text-collapsed icon icon-anchor"></i>
         <i class="text-in icon icon-close"></i>
         <span>]</span>
@@ -614,11 +637,11 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -639,29 +662,23 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
     
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
   <script type="text/javascript">
-  var GUEST = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link';
-  meta = meta.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#vcomments',
-    verify: false,
-    notify: false,
-    appId: '',
-    appKey: '',
-    placeholder: 'Just go go',
-    avatar: 'mm',
-    meta: meta,
-    pageSize: '10' || 10,
-    visitor: false
-  });
+  var gitalk = new Gitalk({
+    clientID: '5a9ef4ccd35b8f7480f3',
+    clientSecret: '0c666034b6611975afa58dbe9135b7a155320ec2',
+    repo: 'JZhao919.github.io',
+    owner: 'JZhao919',
+    admin: ['JZhao919'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
   </script>
 
-     
+      
 
 
 
