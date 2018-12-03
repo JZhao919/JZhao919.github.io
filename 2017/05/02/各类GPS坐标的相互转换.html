@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>各类GPS坐标的相互转换 | AZJ.Blog</title>
+  <meta name="description" content="本文主要是记录用到的各类GPS坐标（WGS-84、GCJ-02（高德）、BD-09（百度））的相互转换方法，为JavaScript版本，主要借鉴来源该篇CSDN文章。">
+<meta name="keywords" content="GPS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="各类GPS坐标的相互转换">
+<meta property="og:url" content="http://blog.azj.space/2017/05/02/各类GPS坐标的相互转换.html">
+<meta property="og:site_name" content="AZJ.Blog">
+<meta property="og:description" content="本文主要是记录用到的各类GPS坐标（WGS-84、GCJ-02（高德）、BD-09（百度））的相互转换方法，为JavaScript版本，主要借鉴来源该篇CSDN文章。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-03T13:08:31.171Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="各类GPS坐标的相互转换">
+<meta name="twitter:description" content="本文主要是记录用到的各类GPS坐标（WGS-84、GCJ-02（高德）、BD-09（百度））的相互转换方法，为JavaScript版本，主要借鉴来源该篇CSDN文章。">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://blog.azj.space/2017/05/02/各类GPS坐标的相互转换.html">
+  
+    <link rel="alternate" href="/atom.xml" title="AZJ.Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
+  
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://blog.azj.space" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">AZJ</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">JAVA &amp; Big Data Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Chengdu, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Jasonzj521" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://www.facebook.com/JZhao919" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
+        
+        <li><a href="https://twitter.com/JZhao919" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="http://weibo.com/3686760571" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/GPS/" style="font-size: 13px;">GPS</a> <a href="/tags/OutGFW/" style="font-size: 13px;">OutGFW</a> <a href="/tags/software/" style="font-size: 13px;">software</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Ubuntu/">Ubuntu</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPS/">GPS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OutGFW/">OutGFW</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">software</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/06/18/Ubuntu配置与软件.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Ubuntu/">Ubuntu</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/18/Ubuntu配置与软件.html" class="title">记一下 Ubuntu18.04 LTS 下的个人配置与软件，下一次重装见</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-18T04:15:30.000Z" itemprop="datePublished">2018-06-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2017/05/02/各类GPS坐标的相互转换.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/05/02/各类GPS坐标的相互转换.html" class="title">各类GPS坐标的相互转换</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-05-02T05:20:55.000Z" itemprop="datePublished">2017-05-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2017/01/02/SS&SSR搭建并加速.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Linux/">Linux</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/01/02/SS&SSR搭建并加速.html" class="title">SS&amp;SSR搭建并加速</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-01-02T06:20:55.000Z" itemprop="datePublished">2017-01-02</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#官方转换接口"><span class="toc-number">1.</span> <span class="toc-text">官方转换接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地转换代码"><span class="toc-number">2.</span> <span class="toc-text">本地转换代码</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-各类GPS坐标的相互转换" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      各类GPS坐标的相互转换
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2017/05/02/各类GPS坐标的相互转换.html" class="article-date">
+	  <time datetime="2017-05-02T05:20:55.000Z" itemprop="datePublished">2017-05-02</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/GPS/">GPS</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2017/05/02/各类GPS坐标的相互转换.html#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>本文主要是记录用到的各类GPS坐标（WGS-84、GCJ-02（高德）、BD-09（百度））的相互转换方法，为JavaScript版本，主要借鉴来源<a href="https://blog.csdn.net/gxhacx/article/details/78752167" target="_blank" rel="noopener">该篇CSDN文章</a>。<a id="more"></a></p>
+<h3 id="官方转换接口"><a href="#官方转换接口" class="headerlink" title="官方转换接口"></a>官方转换接口</h3><p>高德、百度等各自都有自己的坐标转换API，但是每次请求都存在延迟，相对较麻烦。</p>
+<p><a href="https://lbs.amap.com/api/webservice/guide/api/convert" target="_blank" rel="noopener">高德转换API</a>。 <a href="http://lbsyun.baidu.com/index.php?title=webapi/guide/changeposition" target="_blank" rel="noopener">百度转换API</a>。</p>
+<p>而他们各自的JS版SDK中存在的转换函数，基本都是异步处理，前端处理时经常会碰到不方便的情况，所以有了本文。</p>
+<p><a href="https://lbs.amap.com/api/javascript-api/guide/transform/convertfrom" target="_blank" rel="noopener">高德坐标转换方法</a>。</p>
+<h3 id="本地转换代码"><a href="#本地转换代码" class="headerlink" title="本地转换代码"></a>本地转换代码</h3><p>该算法精度保证到小数点后6位，精度符合高德、百度地图的精度范围。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> GPS = &#123;</span><br><span class="line">  PI: <span class="number">3.14159265358979324</span>,</span><br><span class="line">  x_pi: <span class="number">3.14159265358979324</span> * <span class="number">3000.0</span> / <span class="number">180.0</span>,</span><br><span class="line">  delta: <span class="function"><span class="keyword">function</span>(<span class="params">lon, lat</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">6378245.0</span> <span class="comment">//  a: 卫星椭球坐标投影到平面地图坐标系的投影因子。</span></span><br><span class="line">    <span class="keyword">var</span> ee = <span class="number">0.00669342162296594323</span> <span class="comment">//  ee: 椭球的偏心率。</span></span><br><span class="line">    <span class="keyword">var</span> dLat = <span class="keyword">this</span>.transformLat(lon - <span class="number">105.0</span>, lat - <span class="number">35.0</span>)</span><br><span class="line">    <span class="keyword">var</span> dLon = <span class="keyword">this</span>.transformLon(lon - <span class="number">105.0</span>, lat - <span class="number">35.0</span>)</span><br><span class="line">    <span class="keyword">var</span> radLat = lat / <span class="number">180.0</span> * <span class="keyword">this</span>.PI</span><br><span class="line">    <span class="keyword">var</span> magic = <span class="built_in">Math</span>.sin(radLat)</span><br><span class="line">    magic = <span class="number">1</span> - ee * magic * magic</span><br><span class="line">    <span class="keyword">var</span> sqrtMagic = <span class="built_in">Math</span>.sqrt(magic)</span><br><span class="line">    dLat = (dLat * <span class="number">180.0</span>) / ((a * (<span class="number">1</span> - ee)) / (magic * sqrtMagic) * <span class="keyword">this</span>.PI)</span><br><span class="line">    dLon = (dLon * <span class="number">180.0</span>) / (a / sqrtMagic * <span class="built_in">Math</span>.cos(radLat) * <span class="keyword">this</span>.PI)</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="string">'lon'</span>: dLon, <span class="string">'lat'</span>: dLat &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment">// WGS-84 to GCJ-02</span></span><br><span class="line">  gcj_encrypt: <span class="function"><span class="keyword">function</span>(<span class="params">wgsLon, wgsLat</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.outOfChina(wgsLon, wgsLat)) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'outOfChina'</span>)</span><br><span class="line">      <span class="keyword">return</span> &#123;<span class="string">'lon'</span>: wgsLon, <span class="string">'lat'</span>: wgsLat &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> d = <span class="keyword">this</span>.delta(wgsLon, wgsLat)</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="string">'lon'</span>: wgsLon + d.lon, <span class="string">'lat'</span>: wgsLat + d.lat &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// GCJ-02 to WGS-84</span></span><br><span class="line">  gcj_decrypt: <span class="function"><span class="keyword">function</span>(<span class="params">gcjLon, gcjLat</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.outOfChina(gcjLon, gcjLat)) &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="string">'lon'</span>: gcjLon, <span class="string">'lat'</span>: gcjLat &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> d = <span class="keyword">this</span>.delta(gcjLat, gcjLon)</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="string">'lon'</span>: gcjLon - d.lon, <span class="string">'lat'</span>: gcjLat - d.lat &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// GCJ-02 to WGS-84 exactly</span></span><br><span class="line">  gcj_decrypt_exact: <span class="function"><span class="keyword">function</span>(<span class="params">gcjLon, gcjLat</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> initDelta = <span class="number">0.01</span></span><br><span class="line">    <span class="keyword">var</span> threshold = <span class="number">0.000000001</span></span><br><span class="line">    <span class="keyword">var</span> dLat = initDelta</span><br><span class="line">    <span class="keyword">var</span> dLon = initDelta</span><br><span class="line">    <span class="keyword">var</span> mLat = gcjLat - dLat</span><br><span class="line">    <span class="keyword">var</span> mLon = gcjLon - dLon</span><br><span class="line">    <span class="keyword">var</span> pLat = gcjLat + dLat</span><br><span class="line">    <span class="keyword">var</span> pLon = gcjLon + dLon</span><br><span class="line">    <span class="keyword">var</span> wgsLat, wgsLon</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">    <span class="comment">// eslint-disable-next-line</span></span><br><span class="line">    <span class="keyword">while</span> (i) &#123;</span><br><span class="line">      wgsLat = (mLat + pLat) / <span class="number">2</span></span><br><span class="line">      wgsLon = (mLon + pLon) / <span class="number">2</span></span><br><span class="line">      <span class="keyword">var</span> tmp = <span class="keyword">this</span>.gcj_encrypt(wgsLat, wgsLon)</span><br><span class="line">      dLat = tmp.lat - gcjLat</span><br><span class="line">      dLon = tmp.lon - gcjLon</span><br><span class="line">      <span class="keyword">if</span> ((<span class="built_in">Math</span>.abs(dLat) &lt; threshold) &amp;&amp; (<span class="built_in">Math</span>.abs(dLon) &lt; threshold)) &#123; <span class="keyword">break</span> &#125;</span><br><span class="line">      <span class="keyword">if</span> (dLat &gt; <span class="number">0</span>) &#123; pLat = wgsLat &#125; <span class="keyword">else</span> &#123; mLat = wgsLat &#125;</span><br><span class="line">      <span class="keyword">if</span> (dLon &gt; <span class="number">0</span>) &#123; pLon = wgsLon &#125; <span class="keyword">else</span> &#123; mLon = wgsLon &#125;</span><br><span class="line">      <span class="keyword">if</span> (++i &gt; <span class="number">10000</span>) &#123; <span class="keyword">break</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="string">'lon'</span>: wgsLon, <span class="string">'lat'</span>: wgsLat &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// GCJ-02 to BD-09</span></span><br><span class="line">  bd_encrypt: <span class="function"><span class="keyword">function</span>(<span class="params">gcjLon, gcjLat</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = gcjLon</span><br><span class="line">    <span class="keyword">var</span> y = gcjLat</span><br><span class="line">    <span class="keyword">var</span> z = <span class="built_in">Math</span>.sqrt(x * x + y * y) + <span class="number">0.00002</span> * <span class="built_in">Math</span>.sin(y * <span class="keyword">this</span>.x_pi)</span><br><span class="line">    <span class="keyword">var</span> theta = <span class="built_in">Math</span>.atan2(y, x) + <span class="number">0.000003</span> * <span class="built_in">Math</span>.cos(x * <span class="keyword">this</span>.x_pi)</span><br><span class="line">    <span class="keyword">var</span> bdLon = z * <span class="built_in">Math</span>.cos(theta) + <span class="number">0.0065</span></span><br><span class="line">    <span class="keyword">var</span> bdLat = z * <span class="built_in">Math</span>.sin(theta) + <span class="number">0.006</span></span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="string">'lon'</span>: bdLon, <span class="string">'lat'</span>: bdLat &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// BD-09 to GCJ-02</span></span><br><span class="line">  bd_decrypt: <span class="function"><span class="keyword">function</span>(<span class="params">bdLon, bdLat</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = bdLon - <span class="number">0.0065</span></span><br><span class="line">    <span class="keyword">var</span> y = bdLat - <span class="number">0.006</span></span><br><span class="line">    <span class="keyword">var</span> z = <span class="built_in">Math</span>.sqrt(x * x + y * y) - <span class="number">0.00002</span> * <span class="built_in">Math</span>.sin(y * <span class="keyword">this</span>.x_pi)</span><br><span class="line">    <span class="keyword">var</span> theta = <span class="built_in">Math</span>.atan2(y, x) - <span class="number">0.000003</span> * <span class="built_in">Math</span>.cos(x * <span class="keyword">this</span>.x_pi)</span><br><span class="line">    <span class="keyword">var</span> gcjLon = z * <span class="built_in">Math</span>.cos(theta)</span><br><span class="line">    <span class="keyword">var</span> gcjLat = z * <span class="built_in">Math</span>.sin(theta)</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="string">'lon'</span>: gcjLon, <span class="string">'lat'</span>: gcjLat &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// WGS-84 to Web mercator</span></span><br><span class="line">  <span class="comment">// mercatorLat -&gt; y mercatorLon -&gt; x</span></span><br><span class="line">  mercator_encrypt: <span class="function"><span class="keyword">function</span>(<span class="params">wgsLon, wgsLat</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = wgsLon * <span class="number">20037508.34</span> / <span class="number">180.0</span></span><br><span class="line">    <span class="keyword">var</span> y = <span class="built_in">Math</span>.log(<span class="built_in">Math</span>.tan((<span class="number">90.0</span> + wgsLat) * <span class="keyword">this</span>.PI / <span class="number">360.0</span>)) / (<span class="keyword">this</span>.PI / <span class="number">180.0</span>)</span><br><span class="line">    y = y * <span class="number">20037508.34</span> / <span class="number">180.0</span></span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="string">'lon'</span>: x, <span class="string">' lat'</span>: y &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Web mercator to WGS-84</span></span><br><span class="line">  <span class="comment">// mercatorLat -&gt; y mercatorLon -&gt; x</span></span><br><span class="line">  mercator_decrypt: <span class="function"><span class="keyword">function</span>(<span class="params">mercatorLon, mercatorLat</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = mercatorLon / <span class="number">20037508.34</span> * <span class="number">180.0</span></span><br><span class="line">    <span class="keyword">var</span> y = mercatorLat / <span class="number">20037508.34</span> * <span class="number">180.0</span></span><br><span class="line">    y = <span class="number">180</span> / <span class="keyword">this</span>.PI * (<span class="number">2</span> * <span class="built_in">Math</span>.atan(<span class="built_in">Math</span>.exp(y * <span class="keyword">this</span>.PI / <span class="number">180.0</span>)) - <span class="keyword">this</span>.PI / <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="string">'lon'</span>: x, <span class="string">'lat'</span>: y &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// two point's distance</span></span><br><span class="line">  distance: <span class="function"><span class="keyword">function</span>(<span class="params">lonA, latA, lonB, latB</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> earthR = <span class="number">6371000.0</span></span><br><span class="line">    <span class="keyword">var</span> x = <span class="built_in">Math</span>.cos(latA * <span class="keyword">this</span>.PI / <span class="number">180.0</span>) * <span class="built_in">Math</span>.cos(latB * <span class="keyword">this</span>.PI / <span class="number">180.0</span>) * <span class="built_in">Math</span>.cos((lonA - lonB) * <span class="keyword">this</span>.PI / <span class="number">180.0</span>)</span><br><span class="line">    <span class="keyword">var</span> y = <span class="built_in">Math</span>.sin(latA * <span class="keyword">this</span>.PI / <span class="number">180.0</span>) * <span class="built_in">Math</span>.sin(latB * <span class="keyword">this</span>.PI / <span class="number">180.0</span>)</span><br><span class="line">    <span class="keyword">var</span> s = x + y</span><br><span class="line">    <span class="keyword">if</span> (s &gt; <span class="number">1</span>) s = <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> (s &lt; <span class="number">-1</span>) s = <span class="number">-1</span></span><br><span class="line">    <span class="keyword">var</span> alpha = <span class="built_in">Math</span>.acos(s)</span><br><span class="line">    <span class="keyword">var</span> distance = alpha * earthR</span><br><span class="line">    <span class="keyword">return</span> distance</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// outOfChina</span></span><br><span class="line">  outOfChina: <span class="function"><span class="keyword">function</span>(<span class="params">lon, lat</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (lon &lt; <span class="number">72.004</span> || lon &gt; <span class="number">137.8347</span>) &#123; <span class="keyword">return</span> <span class="literal">true</span> &#125;</span><br><span class="line">    <span class="keyword">if</span> (lat &lt; <span class="number">0.8293</span> || lat &gt; <span class="number">55.8271</span>) &#123; <span class="keyword">return</span> <span class="literal">true</span> &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  transformLat: <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ret = <span class="number">-100.0</span> + <span class="number">2.0</span> * x + <span class="number">3.0</span> * y + <span class="number">0.2</span> * y * y + <span class="number">0.1</span> * x * y + <span class="number">0.2</span> * <span class="built_in">Math</span>.sqrt(<span class="built_in">Math</span>.abs(x))</span><br><span class="line">    ret += (<span class="number">20.0</span> * <span class="built_in">Math</span>.sin(<span class="number">6.0</span> * x * <span class="keyword">this</span>.PI) + <span class="number">20.0</span> * <span class="built_in">Math</span>.sin(<span class="number">2.0</span> * x * <span class="keyword">this</span>.PI)) * <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">    ret += (<span class="number">20.0</span> * <span class="built_in">Math</span>.sin(y * <span class="keyword">this</span>.PI) + <span class="number">40.0</span> * <span class="built_in">Math</span>.sin(y / <span class="number">3.0</span> * <span class="keyword">this</span>.PI)) * <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">    ret += (<span class="number">160.0</span> * <span class="built_in">Math</span>.sin(y / <span class="number">12.0</span> * <span class="keyword">this</span>.PI) + <span class="number">320</span> * <span class="built_in">Math</span>.sin(y * <span class="keyword">this</span>.PI / <span class="number">30.0</span>)) * <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">  &#125;,</span><br><span class="line">  transformLon: <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ret = <span class="number">300.0</span> + x + <span class="number">2.0</span> * y + <span class="number">0.1</span> * x * x + <span class="number">0.1</span> * x * y + <span class="number">0.1</span> * <span class="built_in">Math</span>.sqrt(<span class="built_in">Math</span>.abs(x))</span><br><span class="line">    ret += (<span class="number">20.0</span> * <span class="built_in">Math</span>.sin(<span class="number">6.0</span> * x * <span class="keyword">this</span>.PI) + <span class="number">20.0</span> * <span class="built_in">Math</span>.sin(<span class="number">2.0</span> * x * <span class="keyword">this</span>.PI)) * <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">    ret += (<span class="number">20.0</span> * <span class="built_in">Math</span>.sin(x * <span class="keyword">this</span>.PI) + <span class="number">40.0</span> * <span class="built_in">Math</span>.sin(x / <span class="number">3.0</span> * <span class="keyword">this</span>.PI)) * <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">    ret += (<span class="number">150.0</span> * <span class="built_in">Math</span>.sin(x / <span class="number">12.0</span> * <span class="keyword">this</span>.PI) + <span class="number">300.0</span> * <span class="built_in">Math</span>.sin(x / <span class="number">30.0</span> * <span class="keyword">this</span>.PI)) * <span class="number">2.0</span> / <span class="number">3.0</span></span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> GPS</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://blog.azj.space/2017/05/02/各类GPS坐标的相互转换.html" title="各类GPS坐标的相互转换" target="_blank" rel="external">http://blog.azj.space/2017/05/02/各类GPS坐标的相互转换.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://blog.azj.space" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://blog.azj.space" target="_blank"><span class="text-dark">AZJ</span><small class="ml-1x">JAVA &amp; Big Data Developer</small></a></h3>
+        <div>Every day to be a little better ...</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+           
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/06/18/Ubuntu配置与软件.html" title="记一下 Ubuntu18.04 LTS 下的个人配置与软件，下一次重装见"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2017/01/02/SS&SSR搭建并加速.html" title="SS&amp;SSR搭建并加速"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,wechat,qq,douban,twitter,facebook,google,linkedin" data-mobile-sites="weibo,qq,wechat,twitter"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Jasonzj521" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://www.facebook.com/JZhao919" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
+        
+        <li><a href="https://twitter.com/JZhao919" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="http://weibo.com/3686760571" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '5a9ef4ccd35b8f7480f3',
+    clientSecret: '0c666034b6611975afa58dbe9135b7a155320ec2',
+    repo: 'JZhao919.github.io',
+    owner: 'JZhao919',
+    admin: ['JZhao919'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
+
+
+
+
+
+
+
+</body>
+</html>

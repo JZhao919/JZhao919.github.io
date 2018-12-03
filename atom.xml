@@ -37,6 +37,26 @@
   </entry>
   
   <entry>
+    <title>各类GPS坐标的相互转换</title>
+    <link href="http://blog.azj.space/2017/05/02/%E5%90%84%E7%B1%BBGPS%E5%9D%90%E6%A0%87%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2.html"/>
+    <id>http://blog.azj.space/2017/05/02/各类GPS坐标的相互转换.html</id>
+    <published>2017-05-02T05:20:55.000Z</published>
+    <updated>2018-12-03T13:08:31.171Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要是记录用到的各类GPS坐标（WGS-84、GCJ-02（高德）、BD-09（百度））的相互转换方法，为JavaScript版本，主要借鉴来源&lt;a href=&quot;https://blog.csdn.net/gxhacx/article/details/78752167&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;该篇CSDN文章&lt;/a&gt;。
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://blog.azj.space/categories/JavaScript/"/>
+    
+    
+      <category term="GPS" scheme="http://blog.azj.space/tags/GPS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SS&amp;SSR搭建并加速</title>
     <link href="http://blog.azj.space/2017/01/02/SS&amp;SSR%E6%90%AD%E5%BB%BA%E5%B9%B6%E5%8A%A0%E9%80%9F.html"/>
     <id>http://blog.azj.space/2017/01/02/SS&amp;SSR搭建并加速.html</id>
