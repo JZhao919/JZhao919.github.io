@@ -17,17 +17,25 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>404 Not Found：该页无法显示 | AZJ.Blog</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="404 Not Found：该页无法显示">
-<meta property="og:url" content="http://blog.azj.space/404.html">
+  <title>Tensorflow环境搭建（Ubuntu18.04） | AZJ.Blog</title>
+  <meta name="description" content="本文是基于Ubuntu18.04的Tendorflow环境的搭建，经本人亲测可行，记录下来留作以后查阅。">
+<meta name="keywords" content="Tensorflow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensorflow环境搭建（Ubuntu18.04）">
+<meta property="og:url" content="http://blog.azj.space/2018/10/19/Tensorflow环境搭建.html">
 <meta property="og:site_name" content="AZJ.Blog">
+<meta property="og:description" content="本文是基于Ubuntu18.04的Tendorflow环境的搭建，经本人亲测可行，记录下来留作以后查阅。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-10T11:09:32.230Z">
+<meta property="og:image" content="https://i.loli.net/2018/12/19/5c1a3b7a976b2.png">
+<meta property="og:image" content="https://i.loli.net/2018/12/19/5c1a2ce39b720.png">
+<meta property="og:image" content="https://i.loli.net/2018/12/19/5c1a2cc09ee6a.png">
+<meta property="og:updated_time" content="2018-12-19T12:37:41.667Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404 Not Found：该页无法显示">
+<meta name="twitter:title" content="Tensorflow环境搭建（Ubuntu18.04）">
+<meta name="twitter:description" content="本文是基于Ubuntu18.04的Tendorflow环境的搭建，经本人亲测可行，记录下来留作以后查阅。">
+<meta name="twitter:image" content="https://i.loli.net/2018/12/19/5c1a3b7a976b2.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://blog.azj.space/404.html">
+  <link rel="canonical" href="http://blog.azj.space/2018/10/19/Tensorflow环境搭建.html">
   
     <link rel="alternate" href="/atom.xml" title="AZJ.Blog" type="application/atom+xml">
   
@@ -392,16 +400,25 @@
 
   
   
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境"><span class="toc-number">1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看NVIDIA驱动型号"><span class="toc-number">2.1.</span> <span class="toc-text">查看NVIDIA驱动型号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#降级gcc"><span class="toc-number">2.2.</span> <span class="toc-text">降级gcc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装对应版本的Cuda"><span class="toc-number">2.3.</span> <span class="toc-text">安装对应版本的Cuda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Cuda对应的Cudnn版本"><span class="toc-number">2.4.</span> <span class="toc-text">安装Cuda对应的Cudnn版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Tensorflow-gpu"><span class="toc-number">2.5.</span> <span class="toc-text">安装Tensorflow-gpu</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#卸载"><span class="toc-number">3.</span> <span class="toc-text">卸载</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
 <main class="main" role="main">
   <div class="content">
-  <article id="page-" class="article article-type-page" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Tensorflow环境搭建" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      404 Not Found：该页无法显示
+      Tensorflow环境搭建（Ubuntu18.04）
     </h1>
   
 
@@ -409,29 +426,134 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/404.html" class="article-date">
-	  <time datetime="2018-10-10T13:20:10.872Z" itemprop="datePublished">2018-10-10</time>
+	<a href="/2018/10/19/Tensorflow环境搭建.html" class="article-date">
+	  <time datetime="2018-10-19T11:16:49.000Z" itemprop="datePublished">2018-10-19</time>
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+  </span>
+
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/Tensorflow/">Tensorflow</a>
+  </span>
+
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/404.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/10/19/Tensorflow环境搭建.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 0(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <script type="text/javascript" src="//www.qq.com/404/search_children.js" charset="utf-8" homepageurl="<%- config.url %>" homepagename="回到我的主页"></script>
+        <p>本文是基于Ubuntu18.04的Tendorflow环境的搭建，经本人亲测可行，记录下来留作以后查阅。<a id="more"></a></p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li><p>Ubuntu-18.04-LTS</p>
+</li>
+<li><p>NVIDIA驱动-396</p>
+</li>
+<li><p>GCC5.0</p>
+</li>
+<li>CUDA9.0</li>
+<li>Cudnn7.1.3</li>
+<li>Tensorflow-gpu</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>主要有以下步骤：</p>
+<ul>
+<li>检查（或更换）NVIDIA驱动的型号</li>
+<li>检查（或更换）gcc版本</li>
+<li>安装对应版本的Cuda并修改环境变量</li>
+<li>安装对应版本的Cudnn</li>
+<li>安装Tensorflow-gpu</li>
+</ul>
+<p>下面将对上述步骤详细说明：</p>
+<h3 id="查看NVIDIA驱动型号"><a href="#查看NVIDIA驱动型号" class="headerlink" title="查看NVIDIA驱动型号"></a>查看NVIDIA驱动型号</h3><p>可以在终端输入<code>nvidia-smi</code>查看具体型号，如果系统有安装NVIDIA驱动，则会显示驱动的型号等信息。</p>
+<p>如果系统没有安装NVIDIA驱动或者驱动版本较低，则需要安装或者更换NVADIA驱动，这里使用图形驱动程序PPA存储库安装NVIDIA驱动程序。更多NVIDIA驱动安装方式可以看<a href="">这里</a></p>
+<ul>
+<li><p>将ppa:graphics-drivers/ppa存储库添加到系统中：</p>
+<p><code>$ sudo add-apt-repository ppa:graphics-drivers/ppa</code> </p>
+<p><code>$ sudo apt update</code></p>
+</li>
+<li><p>通过在终端输入<code>ubuntu-drivers devices</code>查看系统为你推荐的驱动型号。</p>
+<p><img src="https://i.loli.net/2018/12/19/5c1a3b7a976b2.png" alt="1545222990106"></p>
+</li>
+</ul>
+<p>可以看到系统推荐安装<code>NVIDIA-410</code>驱动，为了防止Tensorflow不支持过新的驱动，我安装了<code>NVIDIA-396</code>型号的驱动。</p>
+<ul>
+<li>在终端输入</li>
+</ul>
+<p><code>sudo apt install nvidia-driver-396</code></p>
+<p>中间如果提醒有依赖包未安装，则先安装依赖包再返回安装驱动，其余根据提示进行安装即可。别忘了安装之后在终端输入<code>nvidia-smi</code>检查是否安装成功。最好重启一次看一下是否使用了NVIDIA的驱动。</p>
+<p>然后去NVIDIA官网查看驱动对应的CUDA版本，<code>NVIDIA-396</code>可以安装<code>Cuda-9.2</code>，但我一直使用的是<code>Cuda9.0</code>，所以最后我很保守的选择了<code>Cuda-9.0</code>。</p>
+<h3 id="降级gcc"><a href="#降级gcc" class="headerlink" title="降级gcc"></a>降级gcc</h3><p><strong>因为Cuda-9.0只支持gcc-6.0以下的版本</strong>，而Ubuntu18.04系统默认安装<code>gcc-7.3</code>版本（可以在终端输入<code>gcc --version</code>查看系统安装的gcc版本），所以首先需要降级为<code>gcc-5</code>版本。</p>
+<ul>
+<li><p>首先需要安装<code>gcc-5</code> 在终端输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gcc-5</span><br><span class="line">sudo apt install g++-5</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>链接至<code>gcc-5</code>版本在终端输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/bin</span><br><span class="line">sudo mv gcc gcc.bak #备份</span><br><span class="line">sudo ln -s gcc-5 gcc</span><br><span class="line">sudo mv g++ g++.bak</span><br><span class="line">sudo ln -s g++-5 g++</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>通过<code>gcc --version</code>查看系统的gcc版本是否已更改。</p>
+<h3 id="安装对应版本的Cuda"><a href="#安装对应版本的Cuda" class="headerlink" title="安装对应版本的Cuda"></a>安装对应版本的Cuda</h3><p><a href="https://developer.nvidia.com/cuda-90-download-archive?target_os=Linux&amp;target_arch=x86_64&amp;target_distro=Ubuntu&amp;target_version=1604&amp;target_type=runfilelocal" target="_blank" rel="noopener">官网</a>下载<code>Cuda-9.0</code>run文件安装包，注意官网主文件下面还有四个更新包，一并下载下来。然后在终端输入：</p>
+<ul>
+<li>基础安装包</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh cuda_9.0.176.384.81_linux.run --override</span><br></pre></td></tr></table></figure>
+<p>安装前会询问接受协议，不用看直接Ctrl+C输入accept接受就可。在安装过程中，会出现几个<strong>是否选装</strong>和<strong>安装位置</strong>的选项，其中<strong>第二个不需要</strong>安装NVIDIA驱动（系统已安装），其余都选择yes或者敲回车（默认）。</p>
+<p><img src="https://i.loli.net/2018/12/19/5c1a2ce39b720.png" alt="img"></p>
+<ul>
+<li>四个更新包</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo sh cuda_9.0.176.1_linux.run</span><br><span class="line">sudo sh cuda_9.0.176.2_linux.run</span><br><span class="line">sudo sh cuda_9.0.176.3_linux.run</span><br><span class="line">sudo sh cuda_9.0.176.4_linux.run</span><br></pre></td></tr></table></figure>
+<p>分别安装每个更新包。</p>
+<ul>
+<li>修改环境变量</li>
+</ul>
+<p>安装完<code>Cuda-9.0</code>后，还需要将其添加至系统环境变量。</p>
+<p>打开<code>.bashrc</code>文件或<code>/etc/profile</code>文件：</p>
+<p><code>sudo gedit .bashrc</code></p>
+<p>在文本的最后添加以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export  PATH=&quot;$PATH:/usr/local/cuda-9.0/bin&quot;</span><br><span class="line">export  LD_LIBRARY_PATH=&quot;$LD_LIBRARY_PATH:/usr/local/cuda-9.0/lib64&quot;</span><br></pre></td></tr></table></figure>
+<p>保存文本后，<strong>更新系统环境变量</strong>：</p>
+<p><code>source .bashrc</code></p>
+<p>最后通过在终端输入<code>nvcc -V</code>，检查<code>Cuda-9.0</code>是否安装成功。<br>如出现CUDA的基本信息，则表示安装成功。</p>
+<h3 id="安装Cuda对应的Cudnn版本"><a href="#安装Cuda对应的Cudnn版本" class="headerlink" title="安装Cuda对应的Cudnn版本"></a>安装Cuda对应的Cudnn版本</h3><p>安装完Cuda之后，继续安装与<code>Cuda-9.0</code>版本对应的Cudnn。去<a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">官网</a>下载下面三个deb安装包。</p>
+<p><img src="https://i.loli.net/2018/12/19/5c1a2cc09ee6a.png" alt="img"></p>
+<p>按照下面的顺序分别安装三个deb包。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i &apos;Runtime Library.deb&apos;</span><br><span class="line">sudo dpkg -i &apos;Developer Library.deb&apos;</span><br><span class="line">sudo dpkg -i &apos;Code Sample and User Guide.deb&apos;</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<p>安装完之后可以检查是否安装成功，在终端输入下面代码，如果安装成功会显示<code>Test Passed</code>字样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/src/cudnn_samples_v7/mnistCUDNN</span><br><span class="line">sudo make</span><br><span class="line">./mnistCUDNN</span><br></pre></td></tr></table></figure>
+<h3 id="安装Tensorflow-gpu"><a href="#安装Tensorflow-gpu" class="headerlink" title="安装Tensorflow-gpu"></a>安装Tensorflow-gpu</h3><p>直接通过pip（pip的更换看<a href="">这里</a>）安装<code>Tensorflow-gpu</code>，默认下载的是最新的１.10版本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install tensorflow-gpu</span><br></pre></td></tr></table></figure>
+<ul>
+<li>验证测试</li>
+</ul>
+<p>在python3 中输入以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import tensorflow as tf </span><br><span class="line">&gt;&gt;&gt; hello = tf.constant(&apos;hello tensorflow&apos;)</span><br><span class="line">&gt;&gt;&gt; with tf.Session() as sesh:</span><br><span class="line">&gt;&gt;&gt; ...  sesh.run(hello)</span><br></pre></td></tr></table></figure></p>
+<p>输出结果应该是<code>hello tensorflow</code> ，并且附带上GPU相关信息。</p>
+<p>需要注意目前Tensorflow需要Python3.6的运行环境（Ubuntu18.04自带3.6.5），3.7貌似不支持或者…，所以需要注意Anaconda等Python工具所用的Python环境可能是3.7。</p>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><ul>
+<li>卸载<code>Cuda-9.0</code> </li>
+</ul>
+<p>在终端输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/cuda-9.0/bin</span><br><span class="line">sudo ./uninstall_cuda_9.0.pl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>卸载<code>Cudnn-7.1.3</code> </li>
+</ul>
+<p>在终端输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove cudnn*</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -441,7 +563,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://blog.azj.space//404.html" title="404 Not Found：该页无法显示" target="_blank" rel="external">http://blog.azj.space//404.html</a>
+      <a href="http://blog.azj.space/2018/10/19/Tensorflow环境搭建.html" title="Tensorflow环境搭建（Ubuntu18.04）" target="_blank" rel="external">http://blog.azj.space/2018/10/19/Tensorflow环境搭建.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -472,12 +594,37 @@
   </article>
   
     
+  <section id="comments">
+  	
+           
+    
+  </section>
+
 
   
 </div>
 
   <nav class="bar bar-footer clearfix" data-stick-bottom>
   <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/10/18/Ubuntu中NVIDIA驱动安装.html" title="Ubuntu中NVIDIA驱动安装"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
   
   
   
@@ -545,6 +692,31 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+
+
+
+
+   
+    
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '5a9ef4ccd35b8f7480f3',
+    clientSecret: '0c666034b6611975afa58dbe9135b7a155320ec2',
+    repo: 'JZhao919.github.io',
+    owner: 'JZhao919',
+    admin: ['JZhao919'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
+
+      
 
 
 

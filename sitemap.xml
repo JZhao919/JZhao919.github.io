@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.azj.space/2018/10/19/Tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html</loc>
+    
+    <lastmod>2018-12-19T12:37:41.667Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.azj.space/2018/10/18/Ubuntu%E4%B8%ADNVIDIA%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85.html</loc>
+    
+    <lastmod>2018-12-19T12:34:39.883Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.azj.space/2018/06/18/Ubuntu%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BD%AF%E4%BB%B6.html</loc>
     
-    <lastmod>2018-12-03T13:46:40.241Z</lastmod>
+    <lastmod>2018-12-03T13:48:04.604Z</lastmod>
     
   </url>
   
@@ -44,13 +58,6 @@
   </url>
   
   <url>
-    <loc>http://blog.azj.space/repository/index.html</loc>
-    
-    <lastmod>2018-10-10T11:09:32.230Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.azj.space/categories/index.html</loc>
     
     <lastmod>2018-10-10T11:09:32.230Z</lastmod>
@@ -58,14 +65,21 @@
   </url>
   
   <url>
-    <loc>http://blog.azj.space/tags/index.html</loc>
+    <loc>http://blog.azj.space/books/index.html</loc>
     
     <lastmod>2018-10-10T11:09:32.230Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.azj.space/books/index.html</loc>
+    <loc>http://blog.azj.space/repository/index.html</loc>
+    
+    <lastmod>2018-10-10T11:09:32.230Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.azj.space/tags/index.html</loc>
     
     <lastmod>2018-10-10T11:09:32.230Z</lastmod>
     
