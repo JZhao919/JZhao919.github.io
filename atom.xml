@@ -25,7 +25,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;本文是基于Ubuntu18.04的Tendorflow环境的搭建，经本人亲测可行，记录下来留作以后查阅。
+      &lt;!-- build time:Thu May 16 2019 21:17:00 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;本文是基于Ubuntu18.04的Tendorflow环境的搭建，经本人亲测可行，记录下来留作以后查阅。
     
     </summary>
     
@@ -45,13 +45,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;在Ubuntu 18.04上安装NVIDIA有三种方法：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;使用标准Ubuntu仓库进行自动化安装&lt;/li&gt;
-&lt;li&gt;使用PPA仓库进行自动化安装&lt;/li&gt;
-&lt;li&gt;使用官方的NVIDIA驱动进行手动安装&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;上述三种方法均可用（有略微差别），我个人更习惯于使用手动安装。&lt;/p&gt;
+      &lt;!-- build time:Thu May 16 2019 21:17:00 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;在Ubuntu 18.04上安装NVIDIA有三种方法：&lt;/p&gt;&lt;ol&gt;&lt;li&gt;使用标准Ubuntu仓库进行自动化安装&lt;/li&gt;&lt;li&gt;使用PPA仓库进行自动化安装&lt;/li&gt;&lt;li&gt;使用官方的NVIDIA驱动进行手动安装&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;上述三种方法均可用（有略微差别），我个人更习惯于使用手动安装。&lt;/p&gt;
     
     </summary>
     
@@ -71,7 +65,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;本文档主要是记录一下重装 Ubuntu18.04 LTS 后的个人配置和安装的软件，并记录一些软件的安装流程，留备以后重装用。&lt;br&gt;主要涉及一些 Proxy、系统软件、Chrome插件、常用软件、以及一些开发环境和IDE。&lt;/p&gt;
+      &lt;!-- build time:Thu May 16 2019 21:17:00 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;本文档主要是记录一下重装 Ubuntu18.04 LTS 后的个人配置和安装的软件，并记录一些软件的安装流程，留备以后重装用。&lt;br&gt;主要涉及一些 Proxy、系统软件、Chrome插件、常用软件、以及一些开发环境和IDE。&lt;/p&gt;
     
     </summary>
     
@@ -91,7 +85,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;本文主要是记录用到的各类GPS坐标（WGS-84、GCJ-02（高德）、BD-09（百度））的相互转换方法，为JavaScript版本，主要借鉴来源&lt;a href=&quot;https://blog.csdn.net/gxhacx/article/details/78752167&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;该篇CSDN文章&lt;/a&gt;。
+      &lt;!-- build time:Thu May 16 2019 21:17:00 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;本文主要是记录用到的各类GPS坐标（WGS-84、GCJ-02（高德）、BD-09（百度））的相互转换方法，为JavaScript版本，主要借鉴来源&lt;a href=&quot;https://blog.csdn.net/gxhacx/article/details/78752167&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;该篇CSDN文章&lt;/a&gt;。
     
     </summary>
     
@@ -111,7 +105,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;文章主要内容为 Shadowsocks(SS)、ShadowsocksR(SSR) Server端的安装与使用，并运用锐速工具进行适当的加速。本文达成的效果为油管1080P流畅拖动，大洋彼岸的IP延迟稳定，游戏玩家不推荐。&lt;br&gt;
+      &lt;!-- build time:Thu May 16 2019 21:17:00 GMT+0800 (GMT+08:00) --&gt;&lt;p&gt;文章主要内容为 Shadowsocks(SS)、ShadowsocksR(SSR) Server端的安装与使用，并运用锐速工具进行适当的加速。本文达成的效果为油管1080P流畅拖动，大洋彼岸的IP延迟稳定，游戏玩家不推荐。&lt;br&gt;
     
     </summary>
     
