@@ -17,13 +17,13 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Tensorflow环境搭建（Ubuntu18.04） | AZJ.Blog</title>
+  <title>Tensorflow环境搭建（Ubuntu18.04） | AZJS.BLOG</title>
   <meta name="description" content="本文是基于Ubuntu18.04的Tendorflow环境的搭建，经本人亲测可行，记录下来留作以后查阅。">
 <meta name="keywords" content="Tensorflow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tensorflow环境搭建（Ubuntu18.04）">
-<meta property="og:url" content="http://blog.azj.space/2018/10/19/Tensorflow环境搭建.html">
-<meta property="og:site_name" content="AZJ.Blog">
+<meta property="og:url" content="http://blog.azjs.icu/2018/10/19/Tensorflow环境搭建.html">
+<meta property="og:site_name" content="AZJS.BlOG">
 <meta property="og:description" content="本文是基于Ubuntu18.04的Tendorflow环境的搭建，经本人亲测可行，记录下来留作以后查阅。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2018/12/19/5c1a3b7a976b2.png">
@@ -35,9 +35,9 @@
 <meta name="twitter:description" content="本文是基于Ubuntu18.04的Tendorflow环境的搭建，经本人亲测可行，记录下来留作以后查阅。">
 <meta name="twitter:image" content="https://i.loli.net/2018/12/19/5c1a3b7a976b2.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://blog.azj.space/2018/10/19/Tensorflow环境搭建.html">
+  <link rel="canonical" href="http://blog.azjs.icu/2018/10/19/Tensorflow环境搭建.html">
   
-    <link rel="alternate" href="/atom.xml" title="AZJ.Blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="AZJS.BlOG" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -59,7 +59,7 @@
       
       
       <div class="profile-block text-center">
-        <a id="avatar" href="https://blog.azj.space" target="_blank">
+        <a id="avatar" href="https://blog.azjs.icu" target="_blank">
           <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">AZJ</h2>
@@ -187,7 +187,7 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/Jasonzj521" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="https://github.com/Jacob-zh" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
         <li><a href="https://www.facebook.com/JZhao919" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
         
@@ -480,7 +480,7 @@
 </ul>
 <p>下面将对上述步骤详细说明：</p>
 <h3 id="查看NVIDIA驱动型号"><a href="#查看NVIDIA驱动型号" class="headerlink" title="查看NVIDIA驱动型号"></a>查看NVIDIA驱动型号</h3><p>可以在终端输入<code>nvidia-smi</code>查看具体型号，如果系统有安装NVIDIA驱动，则会显示驱动的型号等信息。</p>
-<p>如果系统没有安装NVIDIA驱动或者驱动版本较低，则需要安装或者更换NVADIA驱动，这里使用图形驱动程序PPA存储库安装NVIDIA驱动程序。更多NVIDIA驱动安装方式可以看<a href="https://blog.azj.space/2018/10/18/Ubuntu%E4%B8%ADNVIDIA%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85.html">这里</a></p>
+<p>如果系统没有安装NVIDIA驱动或者驱动版本较低，则需要安装或者更换NVADIA驱动，这里使用图形驱动程序PPA存储库安装NVIDIA驱动程序。更多NVIDIA驱动安装方式可以看<a href="https://blog.azj.space/2018/10/18/Ubuntu%E4%B8%ADNVIDIA%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85.html" target="_blank" rel="noopener">这里</a></p>
 <ul>
 <li><p>将ppa:graphics-drivers/ppa存储库添加到系统中：</p>
 <p><code>$ sudo add-apt-repository ppa:graphics-drivers/ppa</code> </p>
@@ -536,7 +536,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i &apos;Runtime Library.deb&apos;</span><br><span class="line">sudo dpkg -i &apos;Developer Library.deb&apos;</span><br><span class="line">sudo dpkg -i &apos;Code Sample and User Guide.deb&apos;</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
 <p>安装完之后可以检查是否安装成功，在终端输入下面代码，如果安装成功会显示<code>Test Passed</code>字样。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/src/cudnn_samples_v7/mnistCUDNN</span><br><span class="line">sudo make</span><br><span class="line">./mnistCUDNN</span><br></pre></td></tr></table></figure>
-<h3 id="安装Tensorflow-gpu"><a href="#安装Tensorflow-gpu" class="headerlink" title="安装Tensorflow-gpu"></a>安装Tensorflow-gpu</h3><p>直接通过pip（pip的更换看<a href="https://blog.azj.space/2018/06/18/Ubuntu%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BD%AF%E4%BB%B6.html">这里</a>）安装<code>Tensorflow-gpu</code>，默认下载的是最新的１.10版本。</p>
+<h3 id="安装Tensorflow-gpu"><a href="#安装Tensorflow-gpu" class="headerlink" title="安装Tensorflow-gpu"></a>安装Tensorflow-gpu</h3><p>直接通过pip（pip的更换看<a href="https://blog.azj.space/2018/06/18/Ubuntu%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BD%AF%E4%BB%B6.html" target="_blank" rel="noopener">这里</a>）安装<code>Tensorflow-gpu</code>，默认下载的是最新的１.10版本。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install tensorflow-gpu</span><br></pre></td></tr></table></figure>
 <ul>
 <li>验证测试</li>
@@ -563,7 +563,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://blog.azj.space/2018/10/19/Tensorflow环境搭建.html" title="Tensorflow环境搭建（Ubuntu18.04）" target="_blank" rel="external">http://blog.azj.space/2018/10/19/Tensorflow环境搭建.html</a>
+      <a href="http://blog.azjs.icu/2018/10/19/Tensorflow环境搭建.html" title="Tensorflow环境搭建（Ubuntu18.04）" target="_blank" rel="external">http://blog.azjs.icu/2018/10/19/Tensorflow环境搭建.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -577,12 +577,12 @@
   <div class="panel-body">
     <figure class="media">
       <div class="media-left">
-        <a href="https://blog.azj.space" target="_blank" class="img-burn thumb-sm visible-lg">
+        <a href="https://blog.azjs.icu" target="_blank" class="img-burn thumb-sm visible-lg">
           <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
         </a>
       </div>
       <div class="media-body">
-        <h3 class="media-heading"><a href="https://blog.azj.space" target="_blank"><span class="text-dark">AZJ</span><small class="ml-1x">JAVA &amp; Big Data Developer</small></a></h3>
+        <h3 class="media-heading"><a href="https://blog.azjs.icu" target="_blank"><span class="text-dark">AZJ</span><small class="ml-1x">JAVA &amp; Big Data Developer</small></a></h3>
         <div>Every day to be a little better ...</div>
       </div>
     </figure>
@@ -645,7 +645,7 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/Jasonzj521" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="https://github.com/Jacob-zh" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
         <li><a href="https://www.facebook.com/JZhao919" target="_blank" title="Facebook" data-toggle=tooltip data-placement=top><i class="icon icon-facebook"></i></a></li>
         
@@ -707,9 +707,9 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
   var gitalk = new Gitalk({
     clientID: '5a9ef4ccd35b8f7480f3',
     clientSecret: '0c666034b6611975afa58dbe9135b7a155320ec2',
-    repo: 'JZhao919.github.io',
-    owner: 'JZhao919',
-    admin: ['JZhao919'],
+    repo: 'Jacob-zh.github.io',
+    owner: 'Jacob-zh',
+    admin: ['Jacob-zh'],
     id: md5(location.pathname),
     distractionFreeMode: true
   })

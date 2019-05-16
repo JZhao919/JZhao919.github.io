@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>AZJ.Blog</title>
+  <title>AZJS.BlOG</title>
   
   <subtitle>兒童傑的部落格</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.azj.space/"/>
+  <link href="http://blog.azjs.icu/"/>
   <updated>2018-12-19T12:42:03.183Z</updated>
-  <id>http://blog.azj.space/</id>
+  <id>http://blog.azjs.icu/</id>
   
   <author>
     <name>AZJ</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Tensorflow环境搭建（Ubuntu18.04）</title>
-    <link href="http://blog.azj.space/2018/10/19/Tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html"/>
-    <id>http://blog.azj.space/2018/10/19/Tensorflow环境搭建.html</id>
+    <link href="http://blog.azjs.icu/2018/10/19/Tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.html"/>
+    <id>http://blog.azjs.icu/2018/10/19/Tensorflow环境搭建.html</id>
     <published>2018-10-19T11:16:49.000Z</published>
     <updated>2018-12-19T12:42:03.183Z</updated>
     
@@ -29,17 +29,17 @@
     
     </summary>
     
-      <category term="机器学习" scheme="http://blog.azj.space/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://blog.azjs.icu/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="Tensorflow" scheme="http://blog.azj.space/tags/Tensorflow/"/>
+      <category term="Tensorflow" scheme="http://blog.azjs.icu/tags/Tensorflow/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu中NVIDIA驱动安装</title>
-    <link href="http://blog.azj.space/2018/10/18/Ubuntu%E4%B8%ADNVIDIA%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85.html"/>
-    <id>http://blog.azj.space/2018/10/18/Ubuntu中NVIDIA驱动安装.html</id>
+    <link href="http://blog.azjs.icu/2018/10/18/Ubuntu%E4%B8%ADNVIDIA%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85.html"/>
+    <id>http://blog.azjs.icu/2018/10/18/Ubuntu中NVIDIA驱动安装.html</id>
     <published>2018-10-18T11:58:04.000Z</published>
     <updated>2018-12-19T12:34:39.883Z</updated>
     
@@ -55,17 +55,17 @@
     
     </summary>
     
-      <category term="Ubuntu" scheme="http://blog.azj.space/categories/Ubuntu/"/>
+      <category term="Ubuntu" scheme="http://blog.azjs.icu/categories/Ubuntu/"/>
     
     
-      <category term="NVIDIA" scheme="http://blog.azj.space/tags/NVIDIA/"/>
+      <category term="NVIDIA" scheme="http://blog.azjs.icu/tags/NVIDIA/"/>
     
   </entry>
   
   <entry>
     <title>记一下 Ubuntu18.04 LTS 下的个人配置与软件，下一次重装见</title>
-    <link href="http://blog.azj.space/2018/06/18/Ubuntu%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BD%AF%E4%BB%B6.html"/>
-    <id>http://blog.azj.space/2018/06/18/Ubuntu配置与软件.html</id>
+    <link href="http://blog.azjs.icu/2018/06/18/Ubuntu%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BD%AF%E4%BB%B6.html"/>
+    <id>http://blog.azjs.icu/2018/06/18/Ubuntu配置与软件.html</id>
     <published>2018-06-18T04:15:30.000Z</published>
     <updated>2018-12-03T13:48:04.604Z</updated>
     
@@ -75,17 +75,17 @@
     
     </summary>
     
-      <category term="Ubuntu" scheme="http://blog.azj.space/categories/Ubuntu/"/>
+      <category term="Ubuntu" scheme="http://blog.azjs.icu/categories/Ubuntu/"/>
     
     
-      <category term="software" scheme="http://blog.azj.space/tags/software/"/>
+      <category term="software" scheme="http://blog.azjs.icu/tags/software/"/>
     
   </entry>
   
   <entry>
     <title>各类GPS坐标的相互转换</title>
-    <link href="http://blog.azj.space/2017/05/02/%E5%90%84%E7%B1%BBGPS%E5%9D%90%E6%A0%87%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2.html"/>
-    <id>http://blog.azj.space/2017/05/02/各类GPS坐标的相互转换.html</id>
+    <link href="http://blog.azjs.icu/2017/05/02/%E5%90%84%E7%B1%BBGPS%E5%9D%90%E6%A0%87%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2.html"/>
+    <id>http://blog.azjs.icu/2017/05/02/各类GPS坐标的相互转换.html</id>
     <published>2017-05-02T05:20:55.000Z</published>
     <updated>2018-12-03T13:08:31.171Z</updated>
     
@@ -95,17 +95,17 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="http://blog.azj.space/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="http://blog.azjs.icu/categories/JavaScript/"/>
     
     
-      <category term="GPS" scheme="http://blog.azj.space/tags/GPS/"/>
+      <category term="GPS" scheme="http://blog.azjs.icu/tags/GPS/"/>
     
   </entry>
   
   <entry>
     <title>SS&amp;SSR搭建并加速</title>
-    <link href="http://blog.azj.space/2017/01/02/SS&amp;SSR%E6%90%AD%E5%BB%BA%E5%B9%B6%E5%8A%A0%E9%80%9F.html"/>
-    <id>http://blog.azj.space/2017/01/02/SS&amp;SSR搭建并加速.html</id>
+    <link href="http://blog.azjs.icu/2017/01/02/SS&amp;SSR%E6%90%AD%E5%BB%BA%E5%B9%B6%E5%8A%A0%E9%80%9F.html"/>
+    <id>http://blog.azjs.icu/2017/01/02/SS&amp;SSR搭建并加速.html</id>
     <published>2017-01-02T06:20:55.000Z</published>
     <updated>2018-10-11T14:28:16.490Z</updated>
     
@@ -115,10 +115,10 @@
     
     </summary>
     
-      <category term="Linux" scheme="http://blog.azj.space/categories/Linux/"/>
+      <category term="Linux" scheme="http://blog.azjs.icu/categories/Linux/"/>
     
     
-      <category term="OutGFW" scheme="http://blog.azj.space/tags/OutGFW/"/>
+      <category term="OutGFW" scheme="http://blog.azjs.icu/tags/OutGFW/"/>
     
   </entry>
   
